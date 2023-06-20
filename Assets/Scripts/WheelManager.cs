@@ -39,14 +39,14 @@ public class WheelManager : MonoBehaviour
                 }
                 else if (Input.GetTouch(0).position.x > Screen.width / 2) // if its on the right side of the screen, rotate the wheel right, literally just a mirrored version of the first if.
                 {
-                    Debug.Log("Right!");
-                    // wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z - 15));
                     nextposition.z = currentPosition.z - degrees;
                     currentPosition = nextposition;
+                    Debug.Log("Right! " +nextposition.z);
+                    // wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z - 15));
                     wheel.transform.DORotate(nextposition, rotateSpeed).SetEase(wheelCurve);
                 }
                 else
-                    Debug.Log("Center!");
+                    Debug.Log("Center!"); // I was taught to prepare for every scenario, Is here because of testing.
             }
         }
     }

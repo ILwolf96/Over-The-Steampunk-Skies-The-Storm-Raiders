@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class WheelManager : MonoBehaviour
 {
+    /*
+        Stuff to do:
+     1: Modify the code so the wheel will only move if its being touched on the left or right parts of it.
+     2: Probably converge this and future stuff into a single Game Manager, so currently its going to be split into different classes.
+     Yes, I know that this method of using comments isn't great( as in the /* one), but it helps me a little.
+    */
     [SerializeField] private GameObject wheel; //This is a separate Script that is outside of the game object itself, Sort of a Psuedo Game Manager except for the helm of the ship.
     [SerializeField] private AnimationCurve wheelCurve; // Animation Curves!
     public float rotateSpeed = 15f; //As the namesake says...Its not that its actually duration.

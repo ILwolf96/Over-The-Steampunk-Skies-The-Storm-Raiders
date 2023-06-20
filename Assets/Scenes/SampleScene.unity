@@ -1181,6 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheel: {fileID: 2013770954}
+  rotateSpeed: 0
 --- !u!4 &942740855
 Transform:
   m_ObjectHideFlags: 0

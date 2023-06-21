@@ -13,6 +13,8 @@ public class WheelManager : MonoBehaviour
     */
     [SerializeField] private GameObject wheel; //This is a separate Script that is outside of the game object itself, Sort of a Psuedo Game Manager except for the helm of the ship.
     [SerializeField] private AnimationCurve wheelCurve; // Animation Curves!
+    [SerializeField] private GameObject leftBorder;
+    [SerializeField] private GameObject rightBorder;
     public float rotateSpeed = 15f; //As the namesake says...Its not that its actually duration.
     public float degrees = 15; // Makes the rotation customizable.
     private Vector3 currentPosition; // Saves current position for the tweening.
@@ -29,7 +31,7 @@ public class WheelManager : MonoBehaviour
             if(Input.GetTouch(0).phase== TouchPhase.Began) // Checks if touch has began.
             {
                 
-                if (Input.GetTouch(0).position.x < Screen.width / 2) // if its on the left side of the screen, rotate the wheel left.
+                if ((Input.GetTouch(0).position.x < wheel.transform.position.x)&&Input.GetTouch(0).position.x>leftBorder.transform.position.x) // if its on the left side of the screen, rotate the wheel left.
                 {
                     nextposition.z=currentPosition.z+degrees; // changes the Vector to the new one with the new Z coordinates.
                     currentPosition = nextposition; //...Kinda Pointless to be honest, it made sense when I wrote it Okay? - Sahar
@@ -37,7 +39,7 @@ public class WheelManager : MonoBehaviour
                     //wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z + 15));
                     wheel.transform.DORotate(nextposition,rotateSpeed).SetEase(wheelCurve);
                 }
-                else if (Input.GetTouch(0).position.x > Screen.width / 2) // if its on the right side of the screen, rotate the wheel right, literally just a mirrored version of the first if.
+                else if ((Input.GetTouch(0).position.x > wheel.transform.position.x)&& Input.GetTouch(0).position.x < rightBorder.transform.position.x) // if its on the right side of the screen, rotate the wheel right, literally just a mirrored version of the first if.
                 {
                     nextposition.z = currentPosition.z - degrees;
                     currentPosition = nextposition;

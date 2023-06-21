@@ -7,7 +7,7 @@ public class WheelManager : MonoBehaviour
 {
     /*
         Stuff to do:
-     1: Modify the code so the wheel will only move if its being touched on the left or right parts of it.
+     1: Modify the code so the wheel will only move if its being touched on the left or right parts of it. - DONE
      2: Probably converge this and future stuff into a single Game Manager, so currently its going to be split into different classes.
      Yes, I know that this method of using comments isn't great( as in the /* one), but it helps me a little.
     */

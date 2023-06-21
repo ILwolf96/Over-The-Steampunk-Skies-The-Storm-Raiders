@@ -28,7 +28,7 @@ public class WheelManager : MonoBehaviour
     {
         if(Input.touchCount>0)
         {
-            if(Input.GetTouch(0).phase== TouchPhase.Began) // Checks if touch has began.
+            if(Input.GetTouch(0).phase== TouchPhase.Began) // Checks if touch has started.
             {
                 
                 if ((Input.GetTouch(0).position.x < wheel.transform.position.x)&&Input.GetTouch(0).position.x>leftBorder.transform.position.x) // if its on the left side of the screen, rotate the wheel left.
@@ -47,8 +47,8 @@ public class WheelManager : MonoBehaviour
                     // wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z - 15));
                     wheel.transform.DORotate(nextposition, rotateSpeed).SetEase(wheelCurve);
                 }
-                else
-                    Debug.Log("Center!"); // I was taught to prepare for every scenario, Is here because of testing.
+               // else
+               //     Debug.Log("Center!"); // I was taught to prepare for every scenario, Is here because of testing.
             }
         }
     }

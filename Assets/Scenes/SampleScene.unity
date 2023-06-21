@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 942740854}
   - component: {fileID: 942740856}
   m_Layer: 0
-  m_Name: Wheel Manager
+  m_Name: General Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

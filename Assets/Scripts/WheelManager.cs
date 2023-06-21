@@ -1,12 +1,26 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WheelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject wheel;
-    public float rotateSpeed;
-
+    /*
+        Stuff to do:
+     1: Modify the code so the wheel will only move if its being touched on the left or right parts of it.
+     2: Probably converge this and future stuff into a single Game Manager, so currently its going to be split into different classes.
+     Yes, I know that this method of using comments isn't great( as in the /* one), but it helps me a little.
+    */
+    [SerializeField] private GameObject wheel; //This is a separate Script that is outside of the game object itself, Sort of a Psuedo Game Manager except for the helm of the ship.
+    [SerializeField] private AnimationCurve wheelCurve; // Animation Curves!
+    public float rotateSpeed = 15f; //As the namesake says...Its not that its actually duration.
+    public float degrees = 15; // Makes the rotation customizable.
+    private Vector3 currentPosition; // Saves current position for the tweening.
+    private Vector3 nextposition; //Target Vector3 for the tween to use.
+    private void Start()
+    {
+        currentPosition = new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z); //Saves the initial wheel position to work from there, it means the inititial rotation of the wheel can be changed in Unity and it won't break everything!
+    }
     // Update is called once per frame
     private void Update()
     {
@@ -14,20 +28,26 @@ public class WheelManager : MonoBehaviour
         {
             if(Input.GetTouch(0).phase== TouchPhase.Began) // Checks if touch has began.
             {
+                
                 if (Input.GetTouch(0).position.x < Screen.width / 2) // if its on the left side of the screen, rotate the wheel left.
                 {
-                    Debug.Log("Left!");
-                    wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z + 15));
+                    nextposition.z=currentPosition.z+degrees; // changes the Vector to the new one with the new Z coordinates.
+                    currentPosition = nextposition; //...Kinda Pointless to be honest, it made sense when I wrote it Okay? - Sahar
+                    Debug.Log("Left! " + nextposition.z);
+                    //wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z + 15));
+                    wheel.transform.DORotate(nextposition,rotateSpeed).SetEase(wheelCurve);
                 }
-                else if (Input.GetTouch(0).position.x > Screen.width / 2) // if its on the right side of the screen, rotate the wheel right.
+                else if (Input.GetTouch(0).position.x > Screen.width / 2) // if its on the right side of the screen, rotate the wheel right, literally just a mirrored version of the first if.
                 {
-                    Debug.Log("Right!");
-                    wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z - 15));
+                    nextposition.z = currentPosition.z - degrees;
+                    currentPosition = nextposition;
+                    Debug.Log("Right! " +nextposition.z);
+                    // wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z - 15));
+                    wheel.transform.DORotate(nextposition, rotateSpeed).SetEase(wheelCurve);
                 }
                 else
-                    Debug.Log("Center!");
+                    Debug.Log("Center!"); // I was taught to prepare for every scenario, Is here because of testing.
             }
-            //if(Input.GetTouch(0).position.x)
         }
     }
 }

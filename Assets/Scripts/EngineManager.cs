@@ -9,6 +9,8 @@ public class EngineManager : MonoBehaviour
     [SerializeField] GameObject fLever;
     [SerializeField] GameObject mbLever;
     [SerializeField] GameObject bLever;
+    private Vector2 originalPosition; //tracks original position.
+    private Vector2 direction; //Tracks direction.
     /*Notes:
      1: Detect via swipes for with phase "moved".
      2: Sort the button using borders the same way the wheel is done.
@@ -36,9 +38,11 @@ public class EngineManager : MonoBehaviour
                 case TouchPhase.Began:
                     //records initial position
                     originalPosition = touch.position;
+                    Debug.Log("Started Tracking");
                     break;
                 case TouchPhase.Moved:
                     direction = touch.position - originalPosition;
+                    Debug.Log("Tracking...");
                     break;
                 case TouchPhase.Ended:
                     switch (direction.y)

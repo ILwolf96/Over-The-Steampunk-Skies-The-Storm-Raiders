@@ -14,9 +14,9 @@ public class EngineManager : MonoBehaviour
     private Vector2 direction; //Tracks direction.
     private int boatGear = 0;
     /*Notes:
-     1: Detect via swipes for with phase "moved".
-     2: Sort the button using borders the same way the wheel is done.
-     3: Look into how to scale things up and down for different devices.
+     1: Detect via swipes for with phase "moved". - DONE
+     2: Sort the button using borders the same way the wheel is done. - DONE
+     3: Look into how to scale things up and down for different devices. - ???
      4: Can phase ended be used with the button? if so it saves us time and sanity. probably use if(!phase.ended) for the phase ended for the button.
         Answer: 
      */
@@ -44,11 +44,13 @@ public class EngineManager : MonoBehaviour
                         originalPosition = touch.position;
                         Debug.Log("Started Tracking");
                         break;
-                    case TouchPhase.Moved:
+                    case TouchPhase.Moved: 
+                        //tracks current direction to know where to shift the gear to.
                         direction = touch.position - originalPosition;
                         Debug.Log("Tracking...");
                         break;
                     case TouchPhase.Ended:
+                        //looks at what to do after the touch stops.
                         switch (direction.y)
                         {
                             case 0:
@@ -70,14 +72,15 @@ public class EngineManager : MonoBehaviour
             }
         }
     }
-    private void changeShift()
+    private void changeShift() //This Method handles the change in the gear shifts for the boat...Boats have no gears.
     {
+        //Sets all levers to false so it could be changed to the correct one.
         mfLever.SetActive(false);
         mbLever.SetActive(false);
         bLever.SetActive(false);
         fLever.SetActive(false);
         mLever.SetActive(false);
-        switch (boatGear)
+        switch (boatGear) //switch swaps turns on the correct lever. 0 is for neutral. 1+2 are for forward, -1 + -2 are for backward movement.
         {
             case 0:
                 mLever.SetActive(true);

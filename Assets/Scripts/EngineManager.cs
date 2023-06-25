@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EngineManager : MonoBehaviour
 {
-    [SerializeField] GameObject mLever;
-    [SerializeField] GameObject mfLever;
-    [SerializeField] GameObject fLever;
-    [SerializeField] GameObject mbLever;
-    [SerializeField] GameObject bLever;
+    [SerializeField] private GameObject mLever;
+    [SerializeField] private GameObject mfLever;
+    [SerializeField] private GameObject fLever;
+    [SerializeField] private GameObject mbLever;
+    [SerializeField] private GameObject bLever;
+    [SerializeField] private GameObject border;
     private Vector2 originalPosition; //tracks original position.
     private Vector2 direction; //Tracks direction.
+    private int boatGear = 0;
     /*Notes:
      1: Detect via swipes for with phase "moved".
      2: Sort the button using borders the same way the wheel is done.
@@ -33,33 +35,65 @@ public class EngineManager : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            switch (touch.phase)
+            if(touch.position.x>border.transform.position.x)
             {
-                case TouchPhase.Began:
-                    //records initial position
-                    originalPosition = touch.position;
-                    Debug.Log("Started Tracking");
-                    break;
-                case TouchPhase.Moved:
-                    direction = touch.position - originalPosition;
-                    Debug.Log("Tracking...");
-                    break;
-                case TouchPhase.Ended:
-                    switch (direction.y)
-                    {
-                        case 0:
-                            Debug.Log("Nothing Happened");
-                            break;
-                        case < 0:
-                            Debug.Log("Slowing Down/Going Backwards!");
-                            break;
-                        case > 0:
-                            Debug.Log("Speeding Up!");
-                            break;
-                    }
-                    break;
-
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        //records initial position
+                        originalPosition = touch.position;
+                        Debug.Log("Started Tracking");
+                        break;
+                    case TouchPhase.Moved:
+                        direction = touch.position - originalPosition;
+                        Debug.Log("Tracking...");
+                        break;
+                    case TouchPhase.Ended:
+                        switch (direction.y)
+                        {
+                            case 0:
+                                Debug.Log("Nothing Happened");
+                                break;
+                            case < 0:
+                                Debug.Log("Slowing Down/Going Backwards!");
+                                boatGear--;
+                                changeShift();
+                                break;
+                            case > 0:
+                                Debug.Log("Speeding Up!");
+                                boatGear++;
+                                changeShift();
+                                break;
+                        }
+                        break;
+                }
             }
+        }
+    }
+    private void changeShift()
+    {
+        mfLever.SetActive(false);
+        mbLever.SetActive(false);
+        bLever.SetActive(false);
+        fLever.SetActive(false);
+        mLever.SetActive(false);
+        switch (boatGear)
+        {
+            case 0:
+                mLever.SetActive(true);
+                break;
+            case 1:
+                mfLever.SetActive(true);
+                break;
+            case 2:
+                fLever.SetActive(true);
+                break;
+            case -1:
+                mbLever.SetActive(true);
+                break;
+            case -2:
+                bLever.SetActive(true);
+                break;
         }
     }
 }

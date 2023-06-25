@@ -28,6 +28,34 @@ public class EngineManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    //records initial position
+                    originalPosition = touch.position;
+                    break;
+                case TouchPhase.Moved:
+                    direction = touch.position - originalPosition;
+                    break;
+                case TouchPhase.Ended:
+                    switch (direction.y)
+                    {
+                        case 0:
+                            Debug.Log("Nothing Happened");
+                            break;
+                        case < 0:
+                            Debug.Log("Slowing Down/Going Backwards!");
+                            break;
+                        case > 0:
+                            Debug.Log("Speeding Up!");
+                            break;
+                    }
+                    break;
+
+            }
+        }
     }
 }

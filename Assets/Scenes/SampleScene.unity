@@ -842,10 +842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9bb799ceb92d94eb1c4e2973d8d8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHPsprite: {fileID: 0}
-  twoThirdsHPsprite: {fileID: 0}
-  oneThirdHPsprite: {fileID: 0}
-  zeroHPsprite: {fileID: 0}
+  fullHPsprite: {fileID: 21300000, guid: 9e944e4eabad6f2448b10ce23adddce8, type: 3}
+  twoThirdsHPsprite: {fileID: 21300000, guid: 959fb663ce00b1149af07773eeb4edcc, type: 3}
+  oneThirdHPsprite: {fileID: 21300000, guid: 19c8a068a94902e42bfb041a70c50371, type: 3}
+  zeroHPsprite: {fileID: 21300000, guid: c1a8d6f4f6202b949ae97313dfdf851d, type: 3}
 --- !u!1 &844674220
 GameObject:
   m_ObjectHideFlags: 0

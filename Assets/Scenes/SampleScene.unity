@@ -807,7 +807,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1275,6 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1f17f8ac7eac84cb68db2796abd09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warship: {fileID: 99855139}
   wheel: {fileID: 2013770954}
   wheelCurve:
     serializedVersion: 2
@@ -1331,12 +1332,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282a94b1e0de460479969b10dd251c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warship: {fileID: 99855139}
   mLever: {fileID: 1987683518}
   mfLever: {fileID: 1940532409}
   fLever: {fileID: 889795722}
   mbLever: {fileID: 12432449}
   bLever: {fileID: 402273257}
   border: {fileID: 331673088}
+  firstGear: 1
+  secondGear: 2
 --- !u!114 &942740857
 MonoBehaviour:
   m_ObjectHideFlags: 0

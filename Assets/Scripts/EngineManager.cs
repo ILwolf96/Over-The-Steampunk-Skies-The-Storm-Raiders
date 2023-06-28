@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EngineManager : MonoBehaviour
 {
+    [Header("Ship")]
+    [SerializeField] private GameObject warship; //Warship object.
+    [Header("Engine Parts")]
     [SerializeField] private GameObject mLever;
     [SerializeField] private GameObject mfLever;
     [SerializeField] private GameObject fLever;
@@ -13,6 +16,8 @@ public class EngineManager : MonoBehaviour
     private Vector2 originalPosition; //tracks original position.
     private Vector2 direction; //Tracks direction.
     private int boatGear = 0;
+    public float firstGear = 1;
+    public float secondGear = 2;
     /*Notes:
      1: Detect via swipes for with phase "moved". - DONE
      2: Sort the button using borders the same way the wheel is done. - DONE
@@ -32,6 +37,18 @@ public class EngineManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch(boatGear)
+        {
+            case 1: warship.transform.position += warship.transform.up*firstGear*Time.deltaTime;
+                break;
+            case 2: warship.transform.position += warship.transform.up * secondGear * Time.deltaTime;
+                break;
+            case -1: warship.transform.position -= warship.transform.up * firstGear * Time.deltaTime;
+                break;
+            case -2:
+                warship.transform.position -= warship.transform.up * secondGear * Time.deltaTime;
+                break;
+        }
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);

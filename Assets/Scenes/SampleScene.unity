@@ -353,6 +353,8 @@ GameObject:
   m_Component:
   - component: {fileID: 99855141}
   - component: {fileID: 99855140}
+  - component: {fileID: 99855143}
+  - component: {fileID: 99855142}
   m_Layer: 0
   m_Name: Player Ship
   m_TagString: Untagged
@@ -428,6 +430,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99855142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99855139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9bb799ceb92d94eb1c4e2973d8d8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullHPsprite: {fileID: 21300000, guid: 9e944e4eabad6f2448b10ce23adddce8, type: 3}
+  twoThirdsHPsprite: {fileID: 21300000, guid: 959fb663ce00b1149af07773eeb4edcc, type: 3}
+  oneThirdHPsprite: {fileID: 21300000, guid: 19c8a068a94902e42bfb041a70c50371, type: 3}
+  zeroHPsprite: {fileID: 21300000, guid: c1a8d6f4f6202b949ae97313dfdf851d, type: 3}
+--- !u!114 &99855143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99855139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0410f4a0e2cff164cac53e17cba4d898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSlider: {fileID: 0}
+  hpFillImage: {fileID: 0}
+  maxHP: 100
 --- !u!1 &331673088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,12 +2335,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9095bb0327a0a44a264610ca03638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotateAround: {fileID: 0}
-  distanceFromObject: 1
-  rotationSpeed: 100
-  sprites: []
-  rotationDegrees: []
-  startingRotation: 0
+  objectToRotateAround: {fileID: 1566121078}
+  distanceFromObject: 44
+  rotationSpeed: 2
+  sprites:
+  - {fileID: 0}
+  rotationDegrees:
+  - 0
+  startingRotation: -90
 --- !u!1 &1584497388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,12 +2487,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9095bb0327a0a44a264610ca03638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotateAround: {fileID: 0}
-  distanceFromObject: 1
-  rotationSpeed: 100
-  sprites: []
-  rotationDegrees: []
-  startingRotation: 0
+  objectToRotateAround: {fileID: 1647624628}
+  distanceFromObject: 42
+  rotationSpeed: 1.5
+  sprites:
+  - {fileID: 1025569260}
+  rotationDegrees:
+  - 1
+  startingRotation: -90
 --- !u!1 &1767834882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,6 +2505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1767834884}
   - component: {fileID: 1767834883}
+  - component: {fileID: 1767834885}
   m_Layer: 0
   m_Name: Enemey Ship
   m_TagString: Untagged
@@ -2542,6 +2580,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1767834885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767834882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9bb799ceb92d94eb1c4e2973d8d8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullHPsprite: {fileID: 21300000, guid: 550ceb8cdd4651c488eb96c26e66439d, type: 3}
+  twoThirdsHPsprite: {fileID: 21300000, guid: 7c0541821ac3b9043a6c305ce6994fe3, type: 3}
+  oneThirdHPsprite: {fileID: 21300000, guid: 36b285cf218d06c4b82e62448e16f152, type: 3}
+  zeroHPsprite: {fileID: 21300000, guid: 7739810090f892a4babbbffc85166dd4, type: 3}
 --- !u!1 &1907913572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,6 +2669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933876665}
   - component: {fileID: 1933876664}
+  - component: {fileID: 1933876666}
   m_Layer: 0
   m_Name: Boss Ship
   m_TagString: Untagged
@@ -2689,6 +2744,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1933876666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933876663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9bb799ceb92d94eb1c4e2973d8d8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullHPsprite: {fileID: 21300000, guid: 53bd5d3c1c288f54e8e5ce06bc5665de, type: 3}
+  twoThirdsHPsprite: {fileID: 21300000, guid: f39931f09afb69f46ba2d3491c308776, type: 3}
+  oneThirdHPsprite: {fileID: 21300000, guid: 4c1f3b9ed75dd3d4a9e4dd8743149510, type: 3}
+  zeroHPsprite: {fileID: 21300000, guid: abb0fe090a1b426429d192c1ce1a84de, type: 3}
 --- !u!1 &1940532409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,12 +3070,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9095bb0327a0a44a264610ca03638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotateAround: {fileID: 0}
-  distanceFromObject: 1
-  rotationSpeed: 100
-  sprites: []
-  rotationDegrees: []
-  startingRotation: 0
+  objectToRotateAround: {fileID: 2036098478}
+  distanceFromObject: 40
+  rotationSpeed: 1
+  sprites:
+  - {fileID: 1512069590}
+  rotationDegrees:
+  - 1
+  startingRotation: -90
 --- !u!1 &2058952383
 GameObject:
   m_ObjectHideFlags: 0

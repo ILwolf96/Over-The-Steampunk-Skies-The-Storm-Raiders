@@ -75,7 +75,7 @@ public class EngineManager : MonoBehaviour
     private void changeShift() //This Method handles the change in the gear shifts for the boat...Boats have no gears.
     {
         //Sets all levers to false so it could be changed to the correct one.
-        if(boatGear<-2)
+        if(boatGear<-2) //Fix for everything disappearing.
             boatGear = -2;
         if(boatGear>2)
             boatGear= 2;

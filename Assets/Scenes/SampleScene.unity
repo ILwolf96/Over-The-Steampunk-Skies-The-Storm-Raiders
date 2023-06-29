@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 506281907}
   - component: {fileID: 506281906}
   m_Layer: 0
-  m_Name: Gameplay Loop - The Last Hero - Ean Grimm
+  m_Name: gameplayLoopAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,7 +850,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1097,11 +1097,9 @@ MonoBehaviour:
   bossFightAudio: {fileID: 2131889196}
   bossSecondStageAudio: {fileID: 1656275882}
   bossFinalStandAudio: {fileID: 1797059369}
+  battleEndedAudio: {fileID: 2041446515}
   bossFightDefeatStartAudio: {fileID: 1254421493}
   bossFightDefeatLoopAudio: {fileID: 718732322}
-  battleEndedAudio: {fileID: 2041446515}
-  bossFightHealthThreshold: 66
-  bossSecondStageHealthThreshold: 33
 --- !u!4 &554923839
 Transform:
   m_ObjectHideFlags: 0
@@ -1123,10 +1121,10 @@ Transform:
   - {fileID: 1656275883}
   - {fileID: 1797059370}
   - {fileID: 1736289488}
+  - {fileID: 2041446516}
+  - {fileID: 1429217901}
   - {fileID: 1254421494}
   - {fileID: 718732323}
-  - {fileID: 1429217901}
-  - {fileID: 2041446516}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1319,7 +1317,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 554923839}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725592643
 GameObject:
@@ -1789,7 +1787,7 @@ GameObject:
   - component: {fileID: 975966808}
   - component: {fileID: 975966807}
   m_Layer: 0
-  m_Name: Start Gameplay- The Last Hero - Ean Grimm
+  m_Name: startGameplayAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2572,7 +2570,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 554923839}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331138824
 GameObject:
@@ -2842,7 +2840,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 554923839}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1469405568
 GameObject:
@@ -3565,7 +3563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767834882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -30, z: 0}
+  m_LocalPosition: {x: 0, y: -80, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3985,7 +3983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933876663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -30, z: 0}
+  m_LocalPosition: {x: 0, y: -100, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4452,7 +4450,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 554923839}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2058952383
 GameObject:

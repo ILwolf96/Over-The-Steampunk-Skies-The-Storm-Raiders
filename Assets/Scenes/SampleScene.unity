@@ -624,9 +624,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 99855139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0410f4a0e2cff164cac53e17cba4d898, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df05bb5f36e92046b6a7e61187f9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpSlider: {fileID: 0}
+  hpFillImage: {fileID: 0}
+  maxHealth: 100
 --- !u!1 &134170577
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,15 +5879,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1713650790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e168edacae3a8409880ace887daefa, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c978f7d1e4e05b4f8967789b17000f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerPoint: {fileID: 0}
-  maxRadius: 15
-  damageRadius: 10
-  damageAmount: 1
-  speed: 1
-  hpBar: {fileID: 0}
+  playerTransform: {fileID: 99855141}
+  playerHealthBar: {fileID: 0}
+  outEdge: 75
+  innerEdge: 66
+  stormDamage: 10
+  stormTickDamage: 1
 --- !u!1 &1720527567
 GameObject:
   m_ObjectHideFlags: 0

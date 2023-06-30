@@ -24,8 +24,8 @@ public class EnemyManager : MonoBehaviour
         playerShip = GameObject.FindGameObjectWithTag("Player"); // finds the player tag
         if (playerShip != null)
         {
-            Debug.Log("Player Found!");
-            Debug.Log(enemyShip.transform.position - playerShip.transform.position);
+            //Debug.Log("Player Found!");
+            //Debug.Log(enemyShip.transform.position - playerShip.transform.position);
         }
     }
 
@@ -39,12 +39,12 @@ public class EnemyManager : MonoBehaviour
         {
             enemyShip.transform.Translate(Vector3.up * Time.deltaTime); //moves the ship forward.
         }
-        Debug.Log(Vector2.Distance(enemyShip.transform.position, playerShip.transform.position));
+        //Debug.Log(Vector2.Distance(enemyShip.transform.position, playerShip.transform.position));
         distance = Vector2.Distance(enemyShip.transform.position, playerShip.transform.position); // checks the distance between the ship
         if (distance < maxDistance||distance>maxRange)
         { 
             isFar = false;
-            Debug.Log("STOP");
+            //Debug.Log("STOP");
         }
         if (distance > maxDistance&&distance<maxRange)
             isFar = true;

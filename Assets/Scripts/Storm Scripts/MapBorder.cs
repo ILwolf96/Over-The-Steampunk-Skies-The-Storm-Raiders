@@ -4,96 +4,56 @@ using UnityEngine;
 
 public class MapBorder : MonoBehaviour
 {
-    public PlayerHealthBar playerHealthBar; // Reference to the PlayerHealthBar component
+    [SerializeField] private float outEdge = 10f;  // Distance the player can't go past
+    [SerializeField] private float innerEdge = 5f; // Distance at which the player starts taking damage
+    [SerializeField] private int stormDamage = 10; // Amount of damage the player takes from the storm
+    [SerializeField] private float stormTickDamage = 1f; // Time interval between storm damage ticks
 
-    public float outEdge = 10f; // Distance the player can't go past
-    public float innerEdge = 5f; // Distance at which the player starts taking damage
-
-    public float stormDamage = 10f; // Amount of damage the player takes from the storm
-    public float stormTickDamage = 1f; // Time interval between storm damage ticks
-
-    private Transform playerTransform;
-    private bool isInsideStorm = false; // Flag indicating whether the player is inside the storm or not
+    private GameObject player; // Reference to the player object
 
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
-        if (playerHealthBar == null)
+        player = GameObject.FindGameObjectWithTag("Player"); // Assign the player object with the "Player" tag
+        if (player == null)
         {
-            Debug.LogError("PlayerHealthBar component not found. Make sure to assign the reference in the inspector.");
-            return;
-        }
-
-        if (playerTransform == null)
-        {
-            Debug.LogError("Player object not found. Make sure the player has the 'Player' tag assigned.");
+            Debug.LogError("Player object not found with tag 'Player'. Make sure to assign the correct tag.");
         }
     }
+
 
     private void Update()
     {
-        if (playerTransform == null)
-            return;
+        // Get the distance between the player and the map Border
+        float distanceToBorder = Vector3.Distance(transform.position, player.transform.position);
 
-        Vector2 playerPosition2D = playerTransform.position;
-
-        float distanceToStorm = Vector2.Distance(playerPosition2D, transform.position);
-
-        if (distanceToStorm > outEdge)
+        if (distanceToBorder > outEdge)
         {
-            Vector2 direction = playerPosition2D - (Vector2)transform.position;
-            Vector2 playerPosition = (Vector2)transform.position + (direction.normalized * outEdge);
-            playerTransform.position = playerPosition;
+            // Player has gone past the outer edge, restrict their movement
+            Vector3 directionToBorder = (transform.position - player.transform.position).normalized;
+            player.transform.position = transform.position - directionToBorder * outEdge;
         }
-
-        if (distanceToStorm <= outEdge)
+        else if (distanceToBorder > innerEdge)
         {
-            if (distanceToStorm > innerEdge)
-            {
-                if (!isInsideStorm)
-                {
-                    isInsideStorm = true;
-                    StartStormDamage();
-                }
-            }
-            else
-            {
-                if (isInsideStorm)
-                {
-                    isInsideStorm = false;
-                    StopStormDamage();
-                }
-            }
-        }
-        else
-        {
-            if (isInsideStorm)
-            {
-                isInsideStorm = false;
-                StopStormDamage();
-            }
+            // Player is inside the outer edge but outside the inner edge, start damaging
+            DamagePlayerOverTime();
         }
     }
 
-    private void StartStormDamage()
+    private void DamagePlayerOverTime()
     {
-        InvokeRepeating("ApplyStormDamage", stormTickDamage, stormTickDamage);
+        // Damage the player with storm damage at regular intervals
+        StartCoroutine(DealStormDamage());
     }
 
-    private void StopStormDamage()
+    private System.Collections.IEnumerator DealStormDamage()
     {
-        CancelInvoke("ApplyStormDamage");
-    }
-
-    private void ApplyStormDamage()
-    {
-        if (playerTransform != null && playerHealthBar != null)
+        while (true)
         {
-            float currentHealth = playerHealthBar.GetCurrentHP();
-            playerHealthBar.UpdateHP(currentHealth - stormDamage);
-            Debug.Log("Player takes " + stormDamage + " storm damage. Current HP: " + (currentHealth - stormDamage));
+            yield return new WaitForSeconds(stormTickDamage);
+
+            // Damage the player's health by stormDamage
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>(); // Assuming the player has a health script attached
+            playerHealth.TakeDamage(stormDamage);
         }
     }
-
 }

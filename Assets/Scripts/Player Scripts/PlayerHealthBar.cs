@@ -3,43 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHPBar : MonoBehaviour
+public class PlayerHealthBar : MonoBehaviour
 {
     public Slider hpSlider;
     public Image hpFillImage;
 
-    public float maxHP = 100f;
-    private float currentHP;
+    public float maxHealth = 100f;
+    private float currentHealth;
 
     private void Start()
     {
         // Set the initial HP for the player
-        currentHP = maxHP;
+        currentHealth = maxHealth;
 
         // Set the max value of the slider
-        hpSlider.maxValue = maxHP;
+        hpSlider.maxValue = maxHealth;
 
         // Set the initial value of the slider
-        hpSlider.value = currentHP;
+        hpSlider.value = currentHealth;
 
         // Set the initial color of the fill image (e.g., green)
         hpFillImage.color = Color.green;
     }
 
     // Call this method whenever the player's HP changes
-    public void UpdateHP(float newHP)
+    public void UpdateHP(float newHealth)
     {
         // Update the current HP value
-        currentHP = newHP;
+        currentHealth = newHealth;
 
         // Clamp the current HP to ensure it doesn't go below 0 or above the max HP
-        currentHP = Mathf.Clamp(currentHP, 0f, maxHP);
+        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
 
         // Update the slider value
-        hpSlider.value = currentHP;
+        hpSlider.value = currentHealth;
 
         // Calculate the fill amount based on the current HP
-        float fillAmount = currentHP / maxHP;
+        float fillAmount = currentHealth / maxHealth;
 
         // Update the color of the fill image based on the fill amount
         if (fillAmount > 0.5f)
@@ -59,6 +59,6 @@ public class PlayerHPBar : MonoBehaviour
     // Retrieve the current HP value
     public float GetCurrentHP()
     {
-        return currentHP;
+        return currentHealth;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StormEdge : MonoBehaviour
+public class MapBorder : MonoBehaviour
 {
     [SerializeField] private float outEdge = 10f;  // Distance the player can't go past
     [SerializeField] private float innerEdge = 5f; // Distance at which the player starts taking damage
@@ -13,8 +13,13 @@ public class StormEdge : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player"); // Assuming the player has a tag "Player"
+        player = GameObject.FindGameObjectWithTag("Player"); // Assign the player object with the "Player" tag
+        if (player == null)
+        {
+            Debug.LogError("Player object not found with tag 'Player'. Make sure to assign the correct tag.");
+        }
     }
+
 
     private void Update()
     {

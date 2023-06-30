@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     public float rotateDuration = 1f;
     private Vector3 direction; //Direction where to aim towards.
     private Quaternion rotation; //attempt to look for stuff
-    public float offset;
+    private float offset = 270;
     private bool isFar=true;
     private float distance; //distance between ships.
     // Start is called before the first frame update

@@ -21,12 +21,15 @@ public class EnemyManager : MonoBehaviour
     public float playerDamageAmount = 1f; // Amount of damage taken from the player
     public float scaleReductionAmount = 0.1f; // Amount to reduce the scale by
     public float scaleReductionDuration = 1f; // Duration of the scale reduction
+    public float pressureTickDamageAmount = 1f; // Amount of ticking damage taken when health is low
+    public float pressureTickInterval = 1f; // Time interval between ticking damage
     private Vector3 direction; // Direction where to aim towards.
     private Quaternion rotation; // Attempt to look for stuff.
     private float offset = 270;
     private bool isFar = true;
     private float distance; // Distance between ships.
     private bool isScalingDown = false; // Flag to track if scaling down is in progress
+    private bool isTakingPressureDamage = false; // Flag to track if pressure ticking damage is in progress
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +74,11 @@ public class EnemyManager : MonoBehaviour
 
         // Update enemy ship sprite based on health
         UpdateEnemySprite();
+
+        if (hp <= 33 && !isTakingPressureDamage)
+        {
+            StartPressureTickDamage();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -126,5 +134,22 @@ public class EnemyManager : MonoBehaviour
     {
         isScalingDown = false;
         Destroy(enemyShip);
+    }
+
+    private void StartPressureTickDamage()
+    {
+        isTakingPressureDamage = true;
+        StartCoroutine(ApplyPressureTickDamage());
+    }
+
+    private IEnumerator ApplyPressureTickDamage()
+    {
+        while (hp > 0 && hp <= 33)
+        {
+            TakePlayerDamage(pressureTickDamageAmount);
+            yield return new WaitForSeconds(pressureTickInterval);
+        }
+
+        isTakingPressureDamage = false;
     }
 }

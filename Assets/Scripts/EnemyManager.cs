@@ -32,6 +32,10 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if(hp==0)
+        {
+            Destroy(enemyShip);
+        }
         direction = playerShip.transform.position - enemyShip.transform.position; //finds direction to look at
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //calculates angle for the enemy ship to look at.
         enemyShip.transform.DORotate(Quaternion.Euler(new Vector3(0, 0, angle + offset)).eulerAngles, rotateDuration); //Rotates the ship.
@@ -48,5 +52,14 @@ public class EnemyManager : MonoBehaviour
         }
         if (distance > maxDistance&&distance<maxRange)
             isFar = true;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag=="Player Shot")
+        {
+            Debug.Log("Enemy Shot been hit!");
+            Destroy(collision.gameObject);
+            --hp;
+        }
     }
 }

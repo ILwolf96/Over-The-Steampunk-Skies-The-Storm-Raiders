@@ -6093,8 +6093,8 @@ MonoBehaviour:
   enemyCountStage2: 2
   enemyCountStage3: 2
   enemySpawnTimeStage1: 1
-  enemySpawnTimeStage2: 2
-  enemySpawnTimeStage3: 3
+  enemySpawnTimeStage2: 30
+  enemySpawnTimeStage3: 60
   enemyShipPrefab: {fileID: 1767834882}
   spawners:
   - {fileID: 1626028873}

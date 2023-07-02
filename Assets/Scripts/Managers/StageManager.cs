@@ -38,42 +38,44 @@ public class StageManager : MonoBehaviour
     private void Update()
     {
         // Check conditions to transition between stages
-        if (stage == 1 && enemyShipsDestroyed >= initialEnemyCount&&!hasReachedLevelTwo)
+        if (stage == 1 &&  currentEnemyCount==0&&!hasReachedLevelTwo)
         {
             hasReachedLevelTwo=true;
             enemyShipsDestroyed = 0;
             StartStage2(); // Transition to stage 2
             Debug.Log("Spawning Stage 2");
         }
-        else if (stage == 2 && enemyShipsDestroyed >= enemyCountStage2&&!hasReachedLevelThree)
+        else if (stage == 2 && currentEnemyCount==0&&!hasReachedLevelThree)
         {
             hasReachedLevelThree=true;
             enemyShipsDestroyed = 0;
             StartStage3(); // Transition to stage 3
             Debug.Log("Spawning Stage 3");
             
+            
         }
-        if(hasReachedLevelThree&&enemyShipsDestroyed >=shipsToSpawnStage3)
+        if(stage==3&&currentEnemyCount==0)
         {
-            GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
+            GameObject[] allObjects = Object.FindObjectsOfType<GameObject>(); // We have 0 time and I have no idea how to solve things right now, Sorry for this+the full forach.
             foreach(GameObject obj in allObjects)
             {
                 if(obj.transform.name.Equals("Enemey Ship(Clone)"))
                     Destroy(obj);
             }
+            stage++;
         }
     }
 
     private void StartStage2()
     {
         stage = 2; // Update current stage to stage 2
-        InvokeRepeating("SpawnEnemyShipsStage2", 0f, enemySpawnTimeStage2); // Start spawning enemy ships for stage 2
+        SpawnEnemyShips(maxEnemyCapStage2, shipsToSpawnStage2); // Start spawning enemy ships for stage 2
     }
 
     private void StartStage3()
     {
         stage = 3; // Update current stage to stage 3
-        InvokeRepeating("SpawnEnemyShipsStage3", 0f, enemySpawnTimeStage3); // Start spawning enemy ships for stage 3
+        SpawnEnemyShips(maxEnemyCapStage3, shipsToSpawnStage3); // Start spawning enemy ships for stage 3
     }
 
     private void SpawnEnemyShipsStage1()
@@ -93,22 +95,10 @@ public class StageManager : MonoBehaviour
 
     private void SpawnEnemyShips(int maxEnemyCap, int shipsToSpawn)
     {
-        int remainingEnemyCount = maxEnemyCap - currentEnemyCount; // Calculate the remaining number of enemy ships to spawn
-
         // Check if the remaining enemy count exceeds the maximum cap
-        if (remainingEnemyCount > 0)
-        {
-            // Calculate the number of enemy ships to spawn within the cap limit
-            int shipsToSpawnClamped = Mathf.Min(remainingEnemyCount, shipsToSpawn);
 
-            for (int i = 0; i < shipsToSpawnClamped; i++)
+            for (; shipsToSpawn>0; shipsToSpawn--)
             {
-                if (currentEnemyCount >= maxEnemyCap)
-                {
-                    Debug.Log("Stopped Spawning");
-                    break; // Reached the maximum enemy cap for the stage, stop spawning ships
-                }
-
                 int randomIndex = Random.Range(0, spawners.Length); // Select a random spawner from the array
                 GameObject spawner = spawners[randomIndex];
 
@@ -117,11 +107,10 @@ public class StageManager : MonoBehaviour
 
                 GameObject EnemyShip = Instantiate(enemyShipPrefab, spawnPosition, Quaternion.identity); // Instantiate an enemy ship at the selected spawner position
                 EnemyShip.GetComponent<EnemyManager>().stageManager = this;
-                currentEnemyCount++; // Increment the current enemy count
-
-                Debug.Log("Enemy ship spawned from spawner: " + spawner.name +" Count: " + currentEnemyCount); // Debug log indicating the spawn location
+            currentEnemyCount++; // Increment the current enemy count
+            Debug.Log("Ships left to spawn: " + shipsToSpawn);
+               // Debug.Log("Enemy ship spawned from spawner: " + spawner.name +" Count: " + currentEnemyCount); // Debug log indicating the spawn location
             }
-        }
     }
 
     public void EnemyShipDestroyed()

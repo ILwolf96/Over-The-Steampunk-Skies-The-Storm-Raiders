@@ -44,7 +44,10 @@ public class EnemyManager : MonoBehaviour
             //Debug.Log(enemyShip.transform.position - playerShip.transform.position);
         }
     }
-
+    private void Awake()
+    {
+        
+    }
     // Update is called once per frame
     private void Update()
     {

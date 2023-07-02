@@ -23,6 +23,7 @@ public class StageManager : MonoBehaviour
     private int enemyShipsDestroyed = 0; // Number of enemy ships destroyed
     private int currentEnemyCount = 0; // Current number of enemies in the scene
 
+    private int remainingEnemyCount;
     private bool hasReachedLevelTwo = false;
     private bool hasReachedLevelThree = false;
 
@@ -51,7 +52,8 @@ public class StageManager : MonoBehaviour
             enemyShipsDestroyed = 0;
             StartStage3(); // Transition to stage 3
             Debug.Log("Spawning Stage 3");
-            
+
+
         }
         if(hasReachedLevelThree&&enemyShipsDestroyed >=shipsToSpawnStage3)
         {
@@ -61,6 +63,11 @@ public class StageManager : MonoBehaviour
                 if(obj.transform.name.Equals("Enemey Ship(Clone)"))
                     Destroy(obj);
             }
+        }
+        if (remainingEnemyCount == 0)
+        {
+            CancelInvoke("SpawnEnemyShipsStage2");
+            CancelInvoke("SpawnEnemyShipsStage3");
         }
     }
 
@@ -93,7 +100,7 @@ public class StageManager : MonoBehaviour
 
     private void SpawnEnemyShips(int maxEnemyCap, int shipsToSpawn)
     {
-        int remainingEnemyCount = maxEnemyCap - currentEnemyCount; // Calculate the remaining number of enemy ships to spawn
+        remainingEnemyCount = maxEnemyCap - enemyShipsDestroyed; // Calculate the remaining number of enemy ships to spawn
 
         // Check if the remaining enemy count exceeds the maximum cap
         if (remainingEnemyCount > 0)

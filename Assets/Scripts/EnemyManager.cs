@@ -32,6 +32,7 @@ public class EnemyManager : MonoBehaviour
     private float distance; // Distance between ships.
     private bool isScalingDown = false; // Flag to track if scaling down is in progress
     private bool isTakingPressureDamage = false; // Flag to track if pressure ticking damage is in progress
+    public bool isBoss = false; //checks if this is the boss
 
     // Start is called before the first frame update
     void Start()

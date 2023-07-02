@@ -8,25 +8,26 @@ public class PlayerEnergyShot : MonoBehaviour
 
     private Vector3 initialPosition;
     private float timer;
-    private bool isMoving;
+    [SerializeField] private bool isSpawner = false; //Check if its the spawner one or not.
 
     private void Start()
     {
         initialPosition = transform.position;
         timer = lifetime;
-        isMoving = false;
+        if (transform.parent == null)
+            isSpawner = false;
     }
 
     private void Update()
     {
-        if (isMoving)
+        if (!isSpawner)
         {
             // Move the shot forward
             transform.Translate(Vector2.up * speed * Time.deltaTime);
 
             // Decrease the lifetime timer
             timer -= Time.deltaTime;
-
+            Debug.Log("Time Left:"+timer);
             // Destroy the shot if the timer reaches 0
             if (timer <= 0f)
             {
@@ -48,15 +49,15 @@ public class PlayerEnergyShot : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void StartMoving()
-    {
-        isMoving = true;
-    }
+    //public void StartMoving()
+    //{
+    //    isMoving = true;
+    //}
 
     private void OnDestroy()
     {
         // Reset the position of the shot if it hasn't been destroyed
-        if (!isMoving)
+        if (!isSpawner)
         {
             transform.position = initialPosition;
         }

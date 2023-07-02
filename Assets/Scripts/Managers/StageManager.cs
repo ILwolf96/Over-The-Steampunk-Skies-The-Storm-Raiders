@@ -95,7 +95,8 @@ public class StageManager : MonoBehaviour
                 // Get the position of the selected spawner
                 Vector3 spawnPosition = spawner.transform.position;
 
-                Instantiate(enemyShipPrefab, spawnPosition, Quaternion.identity); // Instantiate an enemy ship at the selected spawner position
+                GameObject EnemyShip = Instantiate(enemyShipPrefab, spawnPosition, Quaternion.identity); // Instantiate an enemy ship at the selected spawner position
+                EnemyShip.GetComponent<EnemyManager>().stageManager = this;
                 currentEnemyCount++; // Increment the current enemy count
 
                 Debug.Log("Enemy ship spawned from spawner: " + spawner.name); // Debug log indicating the spawn location

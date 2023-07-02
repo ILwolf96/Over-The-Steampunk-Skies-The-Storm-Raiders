@@ -42,7 +42,7 @@ public class WheelManager : MonoBehaviour
                     nextposition.z=currentPosition.z+degrees; // changes the Vector to the new one with the new Z coordinates.
                     currentPosition = nextposition; //...Kinda Pointless to be honest, it made sense when I wrote it Okay? - Sahar
                     shipPosition.z += degrees; // Its the two above lines compressed into one, its for the ship though
-                    Debug.Log("Left! " + nextposition.z);
+                    //Debug.Log("Left! " + nextposition.z);
                     //wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z + 15));
                     wheel.transform.DORotate(nextposition,rotateSpeed).SetEase(wheelCurve);
                     warship.transform.DORotate(shipPosition,rotateSpeed).SetEase(wheelCurve);
@@ -52,7 +52,7 @@ public class WheelManager : MonoBehaviour
                     nextposition.z = currentPosition.z - degrees;
                     currentPosition = nextposition;
                     shipPosition.z -= degrees;
-                    Debug.Log("Right! " +nextposition.z);
+                    //Debug.Log("Right! " +nextposition.z);
                     // wheel.transform.Rotate(new Vector3(wheel.transform.rotation.x, wheel.transform.rotation.y, wheel.transform.rotation.z - 15));
                     wheel.transform.DORotate(nextposition, rotateSpeed).SetEase(wheelCurve);
                     warship.transform.DORotate(shipPosition, rotateSpeed).SetEase(wheelCurve);

@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Enemy Ship")]
     [SerializeField] private GameObject enemyShip; // Enemy ship.
+    public StageManager stageManager;
     public Sprite fullHealthSprite; // Sprite for full health (100%)
     public Sprite twoThirdsHealthSprite; // Sprite for two-thirds health (66%)
     public Sprite oneThirdHealthSprite; // Sprite for one-third health (33%)
@@ -133,8 +134,9 @@ public class EnemyManager : MonoBehaviour
 
     private void CompleteScaleReduction()
     {
+        stageManager.EnemyShipDestroyed();
         isScalingDown = false;
-        Destroy(enemyShip);
+        //Destroy(enemyShip);
     }
 
     private void StartPressureTickDamage()

@@ -59,27 +59,27 @@ public class EngineManager : MonoBehaviour
                     case TouchPhase.Began:
                         //records initial position
                         originalPosition = touch.position;
-                        Debug.Log("Started Tracking");
+                        //Debug.Log("Started Tracking");
                         break;
                     case TouchPhase.Moved: 
                         //tracks current direction to know where to shift the gear to.
                         direction = touch.position - originalPosition;
-                        Debug.Log("Tracking...");
+                        //Debug.Log("Tracking...");
                         break;
                     case TouchPhase.Ended:
                         //looks at what to do after the touch stops.
                         switch (direction.y)
                         {
                             case 0:
-                                Debug.Log("Nothing Happened");
+                                //Debug.Log("Nothing Happened");
                                 break;
                             case < 0:
-                                Debug.Log("Slowing Down/Going Backwards!");
+                                //Debug.Log("Slowing Down/Going Backwards!");
                                 boatGear--;
                                 changeShift();
                                 break;
                             case > 0:
-                                Debug.Log("Speeding Up!");
+                                //Debug.Log("Speeding Up!");
                                 boatGear++;
                                 changeShift();
                                 break;

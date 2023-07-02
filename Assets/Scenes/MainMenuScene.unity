@@ -2219,7 +2219,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSceneName: SampleScene
   howToPlaySprites:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4808626b3943d7e4fb965e82e6e0c758, type: 3}
+  - {fileID: 21300000, guid: 65e92d2701f74aa46bc548957cece4bb, type: 3}
+  - {fileID: 21300000, guid: 35c7dc4d5e96d8f49a0ab3f8ded8d615, type: 3}
+  - {fileID: 21300000, guid: b53788c63e28a134ab321b9bce7d664d, type: 3}
   creditsSprites:
   - {fileID: 0}
   howToPlayImage: {fileID: 0}

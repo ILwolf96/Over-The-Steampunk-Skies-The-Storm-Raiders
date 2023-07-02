@@ -27,7 +27,7 @@ public class PlayerEnergyShot : MonoBehaviour
 
             // Decrease the lifetime timer
             timer -= Time.deltaTime;
-            Debug.Log("Time Left:"+timer);
+            //Debug.Log("Time Left:"+timer);
             // Destroy the shot if the timer reaches 0
             if (timer <= 0f)
             {

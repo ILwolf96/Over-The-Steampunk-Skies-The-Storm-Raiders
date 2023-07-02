@@ -23,6 +23,9 @@ public class StageManager : MonoBehaviour
     private int enemyShipsDestroyed = 0; // Number of enemy ships destroyed
     private int currentEnemyCount = 0; // Current number of enemies in the scene
 
+    private bool hasReachedLevelTwo = false;
+    private bool hasReachedLevelThree = false;
+
     private void Start()
     {
         // Check if the initial stage is 1 to start spawning immediately
@@ -35,13 +38,19 @@ public class StageManager : MonoBehaviour
     private void Update()
     {
         // Check conditions to transition between stages
-        if (stage == 1 && enemyShipsDestroyed >= initialEnemyCount)
+        if (stage == 1 && enemyShipsDestroyed >= initialEnemyCount&&!hasReachedLevelTwo)
         {
+            hasReachedLevelTwo=true;
+            enemyShipsDestroyed = 0;
             StartStage2(); // Transition to stage 2
+            Debug.Log("Spawning Stage 2");
         }
-        else if (stage == 2 && enemyShipsDestroyed >= enemyCountStage2)
+        else if (stage == 2 && enemyShipsDestroyed >= enemyCountStage2&&!hasReachedLevelThree)
         {
+            hasReachedLevelThree=true;
+            enemyShipsDestroyed = 0;
             StartStage3(); // Transition to stage 3
+            Debug.Log("Spawning Stage 3");
         }
     }
 
@@ -99,7 +108,7 @@ public class StageManager : MonoBehaviour
                 EnemyShip.GetComponent<EnemyManager>().stageManager = this;
                 currentEnemyCount++; // Increment the current enemy count
 
-                Debug.Log("Enemy ship spawned from spawner: " + spawner.name); // Debug log indicating the spawn location
+                Debug.Log("Enemy ship spawned from spawner: " + spawner.name +" Count: " + currentEnemyCount); // Debug log indicating the spawn location
             }
         }
     }

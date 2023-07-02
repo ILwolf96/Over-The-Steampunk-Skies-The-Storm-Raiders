@@ -53,28 +53,33 @@ public class EnemyManager : MonoBehaviour
             StartScaleReduction();
             return;
         }
-
-        direction = playerShip.transform.position - enemyShip.transform.position; // Finds direction to look at
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // Calculates angle for the enemy ship to look at
-        enemyShip.transform.DORotate(Quaternion.Euler(new Vector3(0, 0, angle + offset)).eulerAngles, rotateDuration); // Rotates the ship
-
-        if (isFar)
+        if (!isBoss)
         {
-            enemyShip.transform.Translate(Vector3.up * Time.deltaTime * movementSpeed); // Moves the ship forward with movementSpeed
+            direction = playerShip.transform.position - enemyShip.transform.position; // Finds direction to look at
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // Calculates angle for the enemy ship to look at
+            enemyShip.transform.DORotate(Quaternion.Euler(new Vector3(0, 0, angle + offset)).eulerAngles, rotateDuration); // Rotates the ship
+
+            if (isFar)
+            {
+                enemyShip.transform.Translate(Vector3.up * Time.deltaTime * movementSpeed); // Moves the ship forward with movementSpeed
+            }
+
+            // Debug.Log(Vector2.Distance(enemyShip.transform.position, playerShip.transform.position));
+            distance = Vector2.Distance(enemyShip.transform.position, playerShip.transform.position); // Checks the distance between the ship
+
+            if (distance < maxDistance || distance > maxRange)
+            {
+                isFar = false;
+                // Debug.Log("STOP");
+            }
+
+            if (distance > maxDistance && distance < maxRange)
+                isFar = true;
         }
-
-        // Debug.Log(Vector2.Distance(enemyShip.transform.position, playerShip.transform.position));
-        distance = Vector2.Distance(enemyShip.transform.position, playerShip.transform.position); // Checks the distance between the ship
-
-        if (distance < maxDistance || distance > maxRange)
+        else
         {
-            isFar = false;
-            // Debug.Log("STOP");
+
         }
-
-        if (distance > maxDistance && distance < maxRange)
-            isFar = true;
-
         // Update enemy ship sprite based on health
         UpdateEnemySprite();
 

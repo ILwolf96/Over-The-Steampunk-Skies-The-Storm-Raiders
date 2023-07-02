@@ -51,6 +51,16 @@ public class StageManager : MonoBehaviour
             enemyShipsDestroyed = 0;
             StartStage3(); // Transition to stage 3
             Debug.Log("Spawning Stage 3");
+            
+        }
+        if(hasReachedLevelThree&&enemyShipsDestroyed >=shipsToSpawnStage3)
+        {
+            GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
+            foreach(GameObject obj in allObjects)
+            {
+                if(obj.transform.name.Equals("Enemey Ship(Clone)"))
+                    Destroy(obj);
+            }
         }
     }
 
@@ -95,6 +105,7 @@ public class StageManager : MonoBehaviour
             {
                 if (currentEnemyCount >= maxEnemyCap)
                 {
+                    Debug.Log("Stopped Spawning");
                     break; // Reached the maximum enemy cap for the stage, stop spawning ships
                 }
 
@@ -117,7 +128,7 @@ public class StageManager : MonoBehaviour
     {
         enemyShipsDestroyed++; // Increment the count of destroyed enemy ships
         currentEnemyCount--; // Decrement the current enemy count
-
+        Debug.Log(enemyShipsDestroyed);
         // You can perform any additional actions here when an enemy ship is destroyed,
         // such as updating the score or checking for victory conditions.
     }

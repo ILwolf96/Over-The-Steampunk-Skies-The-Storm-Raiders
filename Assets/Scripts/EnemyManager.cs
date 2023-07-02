@@ -142,7 +142,7 @@ public class EnemyManager : MonoBehaviour
     {
         stageManager.EnemyShipDestroyed();
         isScalingDown = false;
-        //Destroy(enemyShip);
+        Destroy(enemyShip);
     }
 
     private void StartPressureTickDamage()

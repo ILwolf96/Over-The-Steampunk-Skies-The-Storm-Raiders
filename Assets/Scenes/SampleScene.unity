@@ -6090,7 +6090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 1
   initialEnemyCount: 1
-  enemyCountStage2: 1
+  enemyCountStage2: 2
   enemyCountStage3: 2
   enemySpawnTimeStage1: 1
   enemySpawnTimeStage2: 2

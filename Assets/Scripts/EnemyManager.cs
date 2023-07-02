@@ -23,6 +23,7 @@ public class EnemyManager : MonoBehaviour
     public float scaleReductionDuration = 1f; // Duration of the scale reduction
     public float pressureTickDamageAmount = 1f; // Amount of ticking damage taken when health is low
     public float pressureTickInterval = 1f; // Time interval between ticking damage
+    public float movementSpeed = 3f; // Movement speed of the enemy ship
     private Vector3 direction; // Direction where to aim towards.
     private Quaternion rotation; // Attempt to look for stuff.
     private float offset = 270;
@@ -57,7 +58,7 @@ public class EnemyManager : MonoBehaviour
 
         if (isFar)
         {
-            enemyShip.transform.Translate(Vector3.up * Time.deltaTime); // Moves the ship forward
+            enemyShip.transform.Translate(Vector3.up * Time.deltaTime * movementSpeed); // Moves the ship forward with movementSpeed
         }
 
         // Debug.Log(Vector2.Distance(enemyShip.transform.position, playerShip.transform.position));

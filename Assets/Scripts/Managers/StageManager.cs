@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
+    [Header("Stage")]
     public int stage = 1; // Current stage
     public int initialEnemyCount = 5; // Initial number of enemies in stage 1
     public int enemyCountStage2 = 10; // Number of enemies required to transition to stage 2
@@ -27,6 +29,10 @@ public class StageManager : MonoBehaviour
     private bool hasReachedLevelTwo = false;
     private bool hasReachedLevelThree = false;
 
+    [Header("Player")]
+    [SerializeField] private GameObject playerShip;
+    private PlayerManager playerManager;
+
     private void Start()
     {
         // Check if the initial stage is 1 to start spawning immediately
@@ -34,6 +40,7 @@ public class StageManager : MonoBehaviour
         {
             SpawnEnemyShipsStage1(); // Spawn initial enemy ships for stage 1
         }
+        playerManager = playerShip.GetComponent<PlayerManager>();
     }
 
     private void Update()
@@ -68,6 +75,10 @@ public class StageManager : MonoBehaviour
         {
             CancelInvoke("SpawnEnemyShipsStage2");
             CancelInvoke("SpawnEnemyShipsStage3");
+        }
+        if(playerManager.hp<=0)
+        {
+
         }
     }
 

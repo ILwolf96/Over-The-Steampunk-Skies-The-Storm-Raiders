@@ -8,6 +8,7 @@ TagManager:
   - CenterPoint
   - Enemy Ship
   - Boss Ship
+  - Enemy Shot
   layers:
   - Default
   - TransparentFX

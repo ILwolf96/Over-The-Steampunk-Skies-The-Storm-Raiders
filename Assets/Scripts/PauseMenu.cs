@@ -69,7 +69,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(0);
     }
 
     public void OnEnableWorldManagers()

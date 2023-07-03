@@ -904,6 +904,8 @@ GameObject:
   - component: {fileID: 99855142}
   - component: {fileID: 99855143}
   - component: {fileID: 99855144}
+  - component: {fileID: 99855145}
+  - component: {fileID: 99855146}
   m_Layer: 0
   m_Name: Player Ship
   m_TagString: Player
@@ -1011,7 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 0}
   hpFillImage: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 50
 --- !u!114 &99855144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,6 +1028,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 75
   stormDamageDistance: 60
+--- !u!70 &99855145
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99855139}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011535168, y: 0}
+  m_Size: {x: 3.780963, y: 7.68}
+  m_Direction: 0
+--- !u!114 &99855146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99855139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be814280cf042c409365e49b88cfed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 40
 --- !u!1 &109519366
 GameObject:
   m_ObjectHideFlags: 0
@@ -5308,7 +5339,7 @@ GameObject:
   - component: {fileID: 838985385}
   m_Layer: 0
   m_Name: Enemy Energy Cannon Shot
-  m_TagString: Player Shot
+  m_TagString: Enemy Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9115,7 +9146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1576416594
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10418,7 +10449,7 @@ MonoBehaviour:
   pressureTickInterval: 1
   movementSpeed: 3
   isBoss: 0
-  timer: 10
+  timer: 4
   distanceModifier: 1.5
   enemyEnergyShotPrefab: {fileID: 838985380}
 --- !u!58 &1767834887

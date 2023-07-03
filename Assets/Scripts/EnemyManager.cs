@@ -175,7 +175,6 @@ public class EnemyManager : MonoBehaviour
 
     private void EnemyShoot()
     {
-        Debug.Log("Working!");
         if(distance<maxDistance*distanceModifier)
         {
             // Get the position and rotation of the player's ship

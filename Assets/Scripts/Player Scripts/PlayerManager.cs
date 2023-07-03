@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public EnemyEnergyShot shotManager;
-    public float hp = 100;
+    private EnemyEnergyShot shotManager;
+    public float hp = 40;
     // Start is called before the first frame update
 
     // Update is called once per frame

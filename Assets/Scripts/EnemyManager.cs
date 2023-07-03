@@ -33,6 +33,8 @@ public class EnemyManager : MonoBehaviour
     private bool isScalingDown = false; // Flag to track if scaling down is in progress
     private bool isTakingPressureDamage = false; // Flag to track if pressure ticking damage is in progress
     public bool isBoss = false; //checks if this is the boss
+    private bool bossReachedMid=false;
+    private Vector3 midPosition = new Vector3(0f,0f, 0f);
 
     // Start is called before the first frame update
     void Start()
@@ -76,10 +78,13 @@ public class EnemyManager : MonoBehaviour
             if (distance > maxDistance && distance < maxRange)
                 isFar = true;
         }
-        else
+        if (isBoss && enemyShip.transform.position.Equals(midPosition))
+            bossReachedMid = true;
+        if(isBoss&&!bossReachedMid)
         {
-
+            enemyShip.transform.DOMove(midPosition,movementSpeed*Time.deltaTime);
         }
+        
         // Update enemy ship sprite based on health
         UpdateEnemySprite();
 

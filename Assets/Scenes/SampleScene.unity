@@ -1223,17 +1223,17 @@ RectTransform:
   m_GameObject: {fileID: 156077526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.8438177, y: 3.8438177, z: 3.8438177}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28.954582, y: 933}
-  m_SizeDelta: {x: 364.2901, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -350}
+  m_SizeDelta: {x: 360, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &156077528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2225,19 +2225,18 @@ RectTransform:
   m_GameObject: {fileID: 322020994}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.5416, y: 6.5416, z: 6.5416}
+  m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 724914806}
-  - {fileID: 1576416594}
   m_Father: {fileID: 1558122119}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 530, y: 1334}
-  m_SizeDelta: {x: 27.7873, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -250, y: -50}
+  m_SizeDelta: {x: 30, y: 30}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &322020996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4794,10 +4793,10 @@ RectTransform:
   m_Father: {fileID: 322020995}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724914807
 MonoBehaviour:
@@ -5845,17 +5844,17 @@ RectTransform:
   m_GameObject: {fileID: 928672426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.2404137, y: 4.2404137, z: 4.2404137}
+  m_LocalScale: {x: 4, y: 4, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 136, y: 731.00073}
-  m_SizeDelta: {x: 339.8063, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -550}
+  m_SizeDelta: {x: 350, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &928672428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5939,7 +5938,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 47.815025, w: 35.671528}
+  m_margin: {x: 28.780655, y: 0, z: 51.830925, w: 35.671528}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8859,7 +8858,7 @@ MonoBehaviour:
   enemyCountStage3: 2
   enemySpawnTimeStage1: 1
   enemySpawnTimeStage2: 15
-  enemySpawnTimeStage3: 30
+  enemySpawnTimeStage3: 25
   enemyShipPrefab: {fileID: 1767834882}
   spawners:
   - {fileID: 1626028873}
@@ -9070,6 +9069,7 @@ RectTransform:
   m_Children:
   - {fileID: 2058952384}
   - {fileID: 322020995}
+  - {fileID: 1576416594}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9134,25 +9134,25 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576416593}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15286775, y: 0.15286775, z: 0.1528678}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 928672427}
   - {fileID: 156077527}
+  - {fileID: 928672427}
   - {fileID: 1283920705}
   - {fileID: 597360212}
   - {fileID: 1330513882}
   - {fileID: 1323511872}
   - {fileID: 2072133224}
-  m_Father: {fileID: 322020995}
-  m_RootOrder: 1
+  m_Father: {fileID: 1558122119}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -203.9257, y: 81.02}
-  m_SizeDelta: {x: 1412.2126, y: 3010}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1576416595
 MonoBehaviour:
@@ -11470,7 +11470,6 @@ GameObject:
   - component: {fileID: 1933876665}
   - component: {fileID: 1933876664}
   - component: {fileID: 1933876666}
-  - component: {fileID: 1933876667}
   m_Layer: 0
   m_Name: Boss Ship
   m_TagString: Untagged
@@ -11562,38 +11561,6 @@ MonoBehaviour:
   twoThirdsHPsprite: {fileID: 21300000, guid: f39931f09afb69f46ba2d3491c308776, type: 3}
   oneThirdHPsprite: {fileID: 21300000, guid: 4c1f3b9ed75dd3d4a9e4dd8743149510, type: 3}
   zeroHPsprite: {fileID: 21300000, guid: abb0fe090a1b426429d192c1ce1a84de, type: 3}
---- !u!114 &1933876667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933876663}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f931f6706bb804419d341e026970465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyShip: {fileID: 0}
-  stageManager: {fileID: 0}
-  fullHealthSprite: {fileID: 0}
-  twoThirdsHealthSprite: {fileID: 0}
-  oneThirdHealthSprite: {fileID: 0}
-  noHealthSprite: {fileID: 0}
-  maxRange: 30
-  maxDistance: 20
-  hp: 0
-  rotateDuration: 1
-  playerDamageAmount: 1
-  scaleReductionAmount: 0.1
-  scaleReductionDuration: 1
-  pressureTickDamageAmount: 1
-  pressureTickInterval: 1
-  movementSpeed: 3
-  isBoss: 1
-  timer: 10
-  distanceModifier: 1.5
-  enemyEnergyShotPrefab: {fileID: 0}
 --- !u!1 &1940532409
 GameObject:
   m_ObjectHideFlags: 0

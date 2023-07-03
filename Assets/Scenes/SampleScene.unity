@@ -902,7 +902,6 @@ GameObject:
   - component: {fileID: 99855141}
   - component: {fileID: 99855140}
   - component: {fileID: 99855142}
-  - component: {fileID: 99855143}
   - component: {fileID: 99855144}
   - component: {fileID: 99855145}
   - component: {fileID: 99855146}
@@ -999,21 +998,6 @@ MonoBehaviour:
   twoThirdsHPsprite: {fileID: 21300000, guid: 959fb663ce00b1149af07773eeb4edcc, type: 3}
   oneThirdHPsprite: {fileID: 21300000, guid: 19c8a068a94902e42bfb041a70c50371, type: 3}
   zeroHPsprite: {fileID: 21300000, guid: c1a8d6f4f6202b949ae97313dfdf851d, type: 3}
---- !u!114 &99855143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99855139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df05bb5f36e92046b6a7e61187f9637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpSlider: {fileID: 0}
-  hpFillImage: {fileID: 0}
-  maxHealth: 100
 --- !u!114 &99855144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1056,7 +1040,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be814280cf042c409365e49b88cfed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 40
+  hp: 100
+  shipSpriteRenderer: {fileID: 99855140}
+  fullHealthSprite: {fileID: 21300000, guid: 9e944e4eabad6f2448b10ce23adddce8, type: 3}
+  twoThirdsHealthSprite: {fileID: 21300000, guid: 959fb663ce00b1149af07773eeb4edcc, type: 3}
+  oneThirdHealthSprite: {fileID: 21300000, guid: 19c8a068a94902e42bfb041a70c50371, type: 3}
+  zeroHealthSprite: {fileID: 21300000, guid: c1a8d6f4f6202b949ae97313dfdf851d, type: 3}
 --- !u!1 &109519366
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,7 +5443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 2
-  damage: 1
+  damage: 5
   isSpawner: 1
 --- !u!1 &841443171
 GameObject:
@@ -10434,8 +10423,8 @@ MonoBehaviour:
   pressureTickInterval: 1
   movementSpeed: 3
   isBoss: 0
-  timer: 4
-  distanceModifier: 1.5
+  timer: 2.5
+  distanceModifier: 5
   enemyEnergyShotPrefab: {fileID: 838985380}
 --- !u!58 &1767834887
 CircleCollider2D:

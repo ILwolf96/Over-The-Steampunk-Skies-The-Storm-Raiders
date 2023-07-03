@@ -1207,7 +1207,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2209,6 +2209,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 724914806}
+  - {fileID: 1576416594}
   m_Father: {fileID: 1558122119}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -2263,7 +2264,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 692419450}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: OnButtonPress
+        m_MethodName: PauseButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3698,7 +3699,7 @@ RectTransform:
   m_Children:
   - {fileID: 1949256226}
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4192,8 +4193,12 @@ MonoBehaviour:
   pauseWindow: {fileID: 1576416593}
   pauseButton: {fileID: 322020996}
   resumeButton: {fileID: 1283920706}
-  returnButton: {fileID: 0}
-  gameManagers: []
+  returnButton: {fileID: 1323511873}
+  gameManagers:
+  - {fileID: 942740853}
+  mainMenuSceneAsset: {fileID: 102900000, guid: fef63b3febf244d4fbf3811427ef6565, type: 3}
+  howToPlayImage: {fileID: 0}
+  creditsImage: {fileID: 0}
 --- !u!4 &692419451
 Transform:
   m_ObjectHideFlags: 0
@@ -5812,7 +5817,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7600,7 +7605,7 @@ RectTransform:
   m_Children:
   - {fileID: 581208634}
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7650,7 +7655,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1283920707}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 692419450}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ResumeButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1283920707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7921,7 +7938,7 @@ GameObject:
   - component: {fileID: 1323511874}
   - component: {fileID: 1323511873}
   m_Layer: 5
-  m_Name: Resume (3)
+  m_Name: Return to Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7941,7 +7958,7 @@ RectTransform:
   m_Children:
   - {fileID: 1290725008}
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8063,7 +8080,7 @@ RectTransform:
   m_Children:
   - {fileID: 705174644}
   m_Father: {fileID: 1576416594}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8827,6 +8844,7 @@ MonoBehaviour:
   shipsToSpawnStage1: 1
   shipsToSpawnStage2: 2
   shipsToSpawnStage3: 3
+  playerShip: {fileID: 99855139}
 --- !u!4 &1542909995
 Transform:
   m_ObjectHideFlags: 0
@@ -9020,7 +9038,6 @@ RectTransform:
   m_Children:
   - {fileID: 2058952384}
   - {fileID: 322020995}
-  - {fileID: 1576416594}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9085,24 +9102,24 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576416593}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15286775, y: 0.15286775, z: 0.1528678}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1283920705}
   - {fileID: 597360212}
   - {fileID: 1330513882}
   - {fileID: 1323511872}
   - {fileID: 156077527}
   - {fileID: 928672427}
-  m_Father: {fileID: 1558122119}
-  m_RootOrder: 2
+  - {fileID: 1283920705}
+  m_Father: {fileID: 322020995}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -203.92564, y: 81.01996}
+  m_SizeDelta: {x: 1412.2126, y: 3010}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1576416595
 MonoBehaviour:

@@ -29,20 +29,25 @@ public class PauseMenu : MonoBehaviour
     {
         pauseButton.onClick.AddListener(PauseButtonPress);
         resumeButton.onClick.AddListener(ResumeButtonPress);
-        returnButton.onClick.AddListener(ReturnToMainMenu);
+        returnButton.onClick.AddListener(() => ReturnToMainMenu("MainMenu"));
     }
 
     public void PauseButtonPress()
     {
         worldManagersEnabled = !worldManagersEnabled;
-        pauseWindow.SetActive(!worldManagersEnabled);
+        pauseWindow.SetActive(worldManagersEnabled);
 
         foreach (GameObject gameManager in gameManagers)
         {
             DisableScripts(gameManager);
         }
 
-        if (!worldManagersEnabled)
+        if (worldManagersEnabled)
+        {
+            HideHowToPlay();
+            HideCredits();
+        }
+        else
         {
             ShowHowToPlay();
         }
@@ -62,9 +67,9 @@ public class PauseMenu : MonoBehaviour
         HideCredits();
     }
 
-    public void ReturnToMainMenu()
+    public void ReturnToMainMenu(string sceneName)
     {
-        SceneManager.LoadScene("MainMenu"); // Replace "MainMenu" with the appropriate scene name
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OnEnableWorldManagers()

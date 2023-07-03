@@ -76,10 +76,10 @@ public class StageManager : MonoBehaviour
             CancelInvoke("SpawnEnemyShipsStage2");
             CancelInvoke("SpawnEnemyShipsStage3");
         }
-        if(playerManager.hp<=0)
-        {
+        //if(playerManager.hp<=0)
+        //{
 
-        }
+        //}
     }
 
     private void StartStage2()

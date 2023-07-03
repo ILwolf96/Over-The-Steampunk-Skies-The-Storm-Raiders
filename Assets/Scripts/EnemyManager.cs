@@ -35,6 +35,11 @@ public class EnemyManager : MonoBehaviour
     public bool isBoss = false; //checks if this is the boss
     private bool bossReachedMid=false;
     private Vector3 midPosition = new Vector3(0f,0f, 0f);
+    public float timer = 10;
+    public float distanceModifier = 1.5f;
+    [Header("EnemyShot")]
+    [SerializeField] private GameObject enemyEnergyShotPrefab;
+    private float shotSpeed = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +50,7 @@ public class EnemyManager : MonoBehaviour
             //Debug.Log("Player Found!");
             //Debug.Log(enemyShip.transform.position - playerShip.transform.position);
         }
+        InvokeRepeating("EnemyShoot", 0, timer);
     }
 
     // Update is called once per frame
@@ -165,5 +171,31 @@ public class EnemyManager : MonoBehaviour
         }
 
         isTakingPressureDamage = false;
+    }
+
+    private void EnemyShoot()
+    {
+        if(distance<maxDistance*distanceModifier)
+        {
+            // Get the position and rotation of the player's ship
+            Vector3 playerPosition = enemyShip.transform.position;
+            Quaternion playerRotation = enemyShip.transform.rotation;
+
+            // Instantiate the PlayerEnergyShot prefab at the player's position and rotation
+            GameObject shot = Instantiate(enemyEnergyShotPrefab, playerPosition, playerRotation);
+
+            // Attach Rigidbody2D component to the shot object
+            Rigidbody2D shotRigidbody = shot.GetComponent<Rigidbody2D>();
+            if (shotRigidbody == null)
+            {
+                shotRigidbody = shot.AddComponent<Rigidbody2D>();
+            }
+
+            // Set the velocity of the shot
+            shotRigidbody.velocity = shot.transform.up * shotSpeed;
+
+            // Disable gravity for the shot
+            shotRigidbody.gravityScale = 0f;
+        }
     }
 }

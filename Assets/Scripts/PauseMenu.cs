@@ -1,53 +1,189 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject PauseButton;
+    [SerializeField]
+    private GameObject pauseWindow;
+    [SerializeField]
+    private Button pauseButton;
+    [SerializeField]
+    private Button resumeButton;
+    [SerializeField]
+    private Button returnButton;
+    [SerializeField]
+    private List<GameObject> gameManagers;
 
-    private bool isPaused = false;
+    private bool worldManagersEnabled = true;
+    private bool canChangeHowToPlaySprite = true;
+    private bool canChangeCreditsSprite = true;
+    private int currentHowToPlaySpriteIndex;
+    private int currentCreditsSpriteIndex;
+    private int howToPlayTouchCounter = 0;
+    private int creditsTouchCounter = 0;
 
-    private void OnApplicationFocus(bool hasFocus)
+    private void Start()
     {
-        if (!hasFocus)
+        pauseButton.onClick.AddListener(PauseButtonPress);
+        resumeButton.onClick.AddListener(ResumeButtonPress);
+        returnButton.onClick.AddListener(ReturnToMainMenu);
+    }
+
+    public void PauseButtonPress()
+    {
+        worldManagersEnabled = !worldManagersEnabled;
+        pauseWindow.SetActive(!worldManagersEnabled);
+
+        foreach (GameObject gameManager in gameManagers)
         {
-            PauseGame(true);
+            DisableScripts(gameManager);
+        }
+
+        if (!worldManagersEnabled)
+        {
+            ShowHowToPlay();
         }
     }
 
-    public void PauseGame(bool PauseState)
+    public void ResumeButtonPress()
     {
-        isPaused = PauseState;
+        worldManagersEnabled = true;
+        pauseWindow.SetActive(false);
 
-        if (isPaused)
+        foreach (GameObject gameManager in gameManagers)
         {
-            PauseButton.gameObject.SetActive(false);
-            gameObject.SetActive(true);
-            Time.timeScale = 0f; // Disable time-based updates
-                                 // Show the pause menu UI
-                                 // You can use SetActive(true) on the canvas or panel GameObject to show the pause menu UI
+            EnableScripts(gameManager);
         }
-        else
-        {
-            PauseButton.gameObject.SetActive(true);
-            gameObject.SetActive(false);
-            Time.timeScale = 1f; // Resume time-based updates
-                                 // Hide the pause menu UI
-                                 // You can use SetActive(false) on the canvas or panel GameObject to hide the pause menu UI
-        }
-    }
 
-
-    public void LoadCreditsScene()
-    {
-        // Load the credits scene
-        SceneManager.LoadScene("CreditsScene");
+        HideHowToPlay();
+        HideCredits();
     }
 
     public void ReturnToMainMenu()
     {
-        // Load the main menu scene
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu"); // Replace "MainMenu" with the appropriate scene name
+    }
+
+    public void OnEnableWorldManagers()
+    {
+        worldManagersEnabled = true;
+        pauseWindow.SetActive(false);
+    }
+
+    private void DisableScripts(GameObject gameObject)
+    {
+        MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            script.enabled = false;
+        }
+    }
+
+    private void EnableScripts(GameObject gameObject)
+    {
+        MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            script.enabled = true;
+        }
+    }
+
+    private void ShowHowToPlay()
+    {
+        currentHowToPlaySpriteIndex = 0;
+        canChangeHowToPlaySprite = true;
+        howToPlayTouchCounter = 0;
+    }
+
+    private void HideHowToPlay()
+    {
+        canChangeHowToPlaySprite = false;
+        howToPlayTouchCounter = 0;
+    }
+
+    private void ShowCredits()
+    {
+        currentCreditsSpriteIndex = 0;
+        canChangeCreditsSprite = true;
+        creditsTouchCounter = 0;
+    }
+
+    private void HideCredits()
+    {
+        canChangeCreditsSprite = false;
+        creditsTouchCounter = 0;
+    }
+
+    private void Update()
+    {
+        if (worldManagersEnabled)
+        {
+            return;
+        }
+
+        if (Input.touchCount > 0)
+        {
+            if (canChangeHowToPlaySprite)
+            {
+                IncrementHowToPlaySprite();
+            }
+            else if (canChangeCreditsSprite)
+            {
+                IncrementCreditsSprite();
+            }
+        }
+
+        if (howToPlayTouchCounter >= 4)
+        {
+            HideHowToPlay();
+        }
+
+        if (creditsTouchCounter >= 4)
+        {
+            HideCredits();
+        }
+    }
+
+    private void IncrementHowToPlaySprite()
+    {
+        if (howToPlayTouchCounter < 4)
+        {
+            howToPlayTouchCounter++;
+            canChangeHowToPlaySprite = false;
+            currentHowToPlaySpriteIndex = (currentHowToPlaySpriteIndex + 1) % 4;
+
+            // TODO: Display the next sprite for How To Play
+        }
+
+        StartCoroutine(EnableHowToPlaySpriteChange());
+    }
+
+    private void IncrementCreditsSprite()
+    {
+        if (creditsTouchCounter < 4)
+        {
+            creditsTouchCounter++;
+            canChangeCreditsSprite = false;
+            currentCreditsSpriteIndex = (currentCreditsSpriteIndex + 1) % 4;
+
+            // TODO: Display the next sprite for Credits
+        }
+
+        StartCoroutine(EnableCreditsSpriteChange());
+    }
+
+    private IEnumerator EnableHowToPlaySpriteChange()
+    {
+        yield return new WaitForSeconds(0.5f); // Delay between sprite changes for How To Play
+        canChangeHowToPlaySprite = true;
+    }
+
+    private IEnumerator EnableCreditsSpriteChange()
+    {
+        yield return new WaitForSeconds(0.5f); // Delay between sprite changes for Credits
+        canChangeCreditsSprite = true;
     }
 }

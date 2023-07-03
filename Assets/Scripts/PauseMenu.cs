@@ -39,7 +39,8 @@ public class PauseMenu : MonoBehaviour
         GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
         foreach (GameObject gameManager in allObjects)
         {
-            DisableScripts(gameManager);
+            if(!gameManager.tag.Equals("Imortant"))
+                DisableScripts(gameManager);
         }
 
         if (worldManagersEnabled)
@@ -57,10 +58,10 @@ public class PauseMenu : MonoBehaviour
     {
         worldManagersEnabled = true;
         pauseWindow.SetActive(false);
-
-        foreach (GameObject gameManager in gameManagers)
+        GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
+        foreach (GameObject gameManager in allObjects)
         {
-            EnableScripts(gameManager);
+                EnableScripts(gameManager);
         }
 
         HideHowToPlay();

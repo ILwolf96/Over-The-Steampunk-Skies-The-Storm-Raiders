@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 156077528}
   m_Layer: 5
   m_Name: Top text
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2222,7 +2222,7 @@ GameObject:
   - component: {fileID: 322020996}
   m_Layer: 5
   m_Name: Pause Button
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3575,7 +3575,7 @@ GameObject:
   - component: {fileID: 581208635}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3711,7 +3711,7 @@ GameObject:
   - component: {fileID: 597360213}
   m_Layer: 5
   m_Name: How To Play
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4216,7 +4216,7 @@ GameObject:
   - component: {fileID: 692419450}
   m_Layer: 0
   m_Name: Pause Manager
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4238,10 +4238,10 @@ MonoBehaviour:
   resumeButton: {fileID: 1283920706}
   returnButton: {fileID: 1323511873}
   gameManagers:
-  - {fileID: 942740853}
-  - {fileID: 99855139}
-  - {fileID: 1767834882}
-  - {fileID: 2036098477}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &692419451
 Transform:
   m_ObjectHideFlags: 0
@@ -4354,7 +4354,7 @@ GameObject:
   - component: {fileID: 705174645}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4785,7 +4785,7 @@ GameObject:
   - component: {fileID: 724914807}
   m_Layer: 5
   m_Name: =
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5842,7 +5842,7 @@ GameObject:
   - component: {fileID: 928672428}
   m_Layer: 5
   m_Name: bot text
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7617,7 +7617,7 @@ GameObject:
   - component: {fileID: 1283920706}
   m_Layer: 5
   m_Name: Resume
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7834,7 +7834,7 @@ GameObject:
   - component: {fileID: 1290725009}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7970,7 +7970,7 @@ GameObject:
   - component: {fileID: 1323511873}
   m_Layer: 5
   m_Name: Return to Main Menu
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8104,7 +8104,7 @@ GameObject:
   - component: {fileID: 1330513883}
   m_Layer: 5
   m_Name: Credits
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9001,7 +9001,7 @@ GameObject:
   - component: {fileID: 1558122116}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9133,7 +9133,7 @@ GameObject:
   - component: {fileID: 1576416595}
   m_Layer: 5
   m_Name: Pause Window
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9630,7 +9630,7 @@ GameObject:
   - component: {fileID: 1643972766}
   m_Layer: 0
   m_Name: EventSystem
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11691,7 +11691,7 @@ GameObject:
   - component: {fileID: 1949256227}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12412,7 +12412,7 @@ GameObject:
   - component: {fileID: 2072133225}
   m_Layer: 5
   m_Name: Display for pause menu
-  m_TagString: Untagged
+  m_TagString: Imortant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

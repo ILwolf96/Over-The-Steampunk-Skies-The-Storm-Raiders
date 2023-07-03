@@ -9,6 +9,7 @@ TagManager:
   - Enemy Ship
   - Boss Ship
   - Enemy Shot
+  - Imortant
   layers:
   - Default
   - TransparentFX

@@ -205,5 +205,6 @@ public class EnemyManager : MonoBehaviour
     private void OnEnable()
     {
         InvokeRepeating("EnemyShoot", 0, timer);
+        
     }
 }

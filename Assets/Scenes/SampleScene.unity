@@ -6633,14 +6633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9095bb0327a0a44a264610ca03638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotateAround: {fileID: 1074201995}
-  distanceFromObject: 66
+  objectToRotateAround: {fileID: 1074201993}
   rotationSpeed: 4
-  sprites:
-  - {fileID: 1674410529}
-  rotationDegrees:
-  - 1
-  startingRotation: -90
 --- !u!4 &1074201995
 Transform:
   m_ObjectHideFlags: 0
@@ -7588,14 +7582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9095bb0327a0a44a264610ca03638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotateAround: {fileID: 1262505168}
-  distanceFromObject: 48
+  objectToRotateAround: {fileID: 1262505166}
   rotationSpeed: 1.5
-  sprites:
-  - {fileID: 363617361}
-  rotationDegrees:
-  - 1
-  startingRotation: -90
 --- !u!4 &1262505168
 Transform:
   m_ObjectHideFlags: 0
@@ -9440,14 +9428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9095bb0327a0a44a264610ca03638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotateAround: {fileID: 1605999986}
-  distanceFromObject: 53
+  objectToRotateAround: {fileID: 1605999984}
   rotationSpeed: 2
-  sprites:
-  - {fileID: 1976024535}
-  rotationDegrees:
-  - 1
-  startingRotation: -90
 --- !u!4 &1605999986
 Transform:
   m_ObjectHideFlags: 0
@@ -12245,14 +12227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9095bb0327a0a44a264610ca03638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotateAround: {fileID: 2036098478}
-  distanceFromObject: 40
+  objectToRotateAround: {fileID: 2036098477}
   rotationSpeed: 1
-  sprites:
-  - {fileID: 1512069590}
-  rotationDegrees:
-  - 1
-  startingRotation: -90
 --- !u!1 &2041446514
 GameObject:
   m_ObjectHideFlags: 0

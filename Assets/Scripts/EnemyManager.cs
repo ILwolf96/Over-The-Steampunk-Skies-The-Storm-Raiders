@@ -198,4 +198,12 @@ public class EnemyManager : MonoBehaviour
             shotRigidbody.gravityScale = 0f;
         }
     }
+    private void OnDisable()
+    {
+        CancelInvoke("EnemyShoot");
+    }
+    private void OnEnable()
+    {
+        InvokeRepeating("EnemyShoot", 0, timer);
+    }
 }

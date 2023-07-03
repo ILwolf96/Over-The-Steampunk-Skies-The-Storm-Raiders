@@ -4238,6 +4238,9 @@ MonoBehaviour:
   resumeButton: {fileID: 1283920706}
   returnButton: {fileID: 1323511873}
   gameManagers:
+  - {fileID: 942740853}
+  - {fileID: 99855139}
+  - {fileID: 1767834882}
   - {fileID: 2036098477}
 --- !u!4 &692419451
 Transform:

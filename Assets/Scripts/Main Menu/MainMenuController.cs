@@ -9,43 +9,71 @@ public class MainMenuController : MonoBehaviour
     public Sprite[] howToPlaySprites;
     public Sprite[] creditsSprites;
     public GameObject howToPlayImage;
+    public GameObject creditsImage;
     public GameObject loadingScreen;
     public float loadingScreenDuration = 3f; // The duration in seconds
-    public int maxTouchCount = 4; // The maximum touch count before hiding the howToPlayImage
+    public int maxHowToPlayTouchCount = 4; // The maximum touch count for How To Play button
+    public int maxCreditsTouchCount = 4; // The maximum touch count for Credits button
 
     private int currentHowToPlaySpriteIndex;
     private int currentCreditsSpriteIndex;
-    private bool canChangeSprite = true;
-    private int touchCounter = 0;
+    private bool canChangeHowToPlaySprite = true;
+    private bool canChangeCreditsSprite = true;
+    private int howToPlayTouchCounter = 0;
+    private int creditsTouchCounter = 0;
 
     private void Start()
     {
         currentHowToPlaySpriteIndex = 0;
         currentCreditsSpriteIndex = 0;
         howToPlayImage.SetActive(false);
+        creditsImage.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.touchCount > 0 && canChangeSprite)
+        if (Input.touchCount > 0)
         {
-            // Increment the sprite index and display the next sprite
-            if (howToPlaySprites.Length > 0)
+            if (canChangeHowToPlaySprite)
             {
-                currentHowToPlaySpriteIndex = (currentHowToPlaySpriteIndex + 1) % howToPlaySprites.Length;
-                howToPlayImage.GetComponent<Image>().sprite = howToPlaySprites[currentHowToPlaySpriteIndex];
-                touchCounter++;
-                canChangeSprite = false;
+                // Increment the sprite index and display the next sprite for How To Play
+                if (howToPlaySprites.Length > 0)
+                {
+                    howToPlayImage.GetComponent<Image>().sprite = howToPlaySprites[currentHowToPlaySpriteIndex];
+                    howToPlayTouchCounter++;
+                    canChangeHowToPlaySprite = false;
+                    currentHowToPlaySpriteIndex = (currentHowToPlaySpriteIndex + 1) % howToPlaySprites.Length;
 
-                // Start a coroutine to delay the next sprite change
-                StartCoroutine(EnableSpriteChange());
+                    // Start a coroutine to delay the next sprite change for How To Play
+                    StartCoroutine(EnableHowToPlaySpriteChange());
+                }
+            }
+            else if (canChangeCreditsSprite)
+            {
+                // Increment the sprite index and display the next sprite for Credits
+                if (creditsSprites.Length > 0)
+                {
+                    creditsImage.GetComponent<Image>().sprite = creditsSprites[currentCreditsSpriteIndex];
+                    creditsTouchCounter++;
+                    canChangeCreditsSprite = false;
+                    currentCreditsSpriteIndex = (currentCreditsSpriteIndex + 1) % creditsSprites.Length;
+
+                    // Start a coroutine to delay the next sprite change for Credits
+                    StartCoroutine(EnableCreditsSpriteChange());
+                }
             }
         }
 
-        if (touchCounter >= maxTouchCount)
+        if (howToPlayTouchCounter >= maxHowToPlayTouchCount && howToPlayImage.activeSelf)
         {
             howToPlayImage.SetActive(false);
-            touchCounter = 0;
+            howToPlayTouchCounter = 0;
+        }
+
+        if (creditsTouchCounter >= maxCreditsTouchCount && creditsImage.activeSelf)
+        {
+            creditsImage.SetActive(false);
+            creditsTouchCounter = 0;
         }
     }
 
@@ -68,8 +96,8 @@ public class MainMenuController : MonoBehaviour
             currentHowToPlaySpriteIndex = 0;
             howToPlayImage.GetComponent<Image>().sprite = howToPlaySprites[currentHowToPlaySpriteIndex];
             howToPlayImage.SetActive(true);
-            canChangeSprite = true;
-            touchCounter = 0;
+            canChangeHowToPlaySprite = true;
+            howToPlayTouchCounter = 0;
         }
     }
 
@@ -78,10 +106,10 @@ public class MainMenuController : MonoBehaviour
         if (creditsSprites.Length > 0)
         {
             currentCreditsSpriteIndex = 0;
-            howToPlayImage.GetComponent<Image>().sprite = creditsSprites[currentCreditsSpriteIndex];
-            howToPlayImage.SetActive(true);
-            canChangeSprite = false;
-            touchCounter = 0;
+            creditsImage.GetComponent<Image>().sprite = creditsSprites[currentCreditsSpriteIndex];
+            creditsImage.SetActive(true);
+            canChangeCreditsSprite = true;
+            creditsTouchCounter = 0;
         }
     }
 
@@ -91,9 +119,15 @@ public class MainMenuController : MonoBehaviour
         loadingScreen.SetActive(false);
     }
 
-    private IEnumerator EnableSpriteChange()
+    private IEnumerator EnableHowToPlaySpriteChange()
     {
-        yield return new WaitForSeconds(0.5f); // Delay between sprite changes
-        canChangeSprite = true;
+        yield return new WaitForSeconds(0.5f); // Delay between sprite changes for How To Play
+        canChangeHowToPlaySprite = true;
+    }
+
+    private IEnumerator EnableCreditsSpriteChange()
+    {
+        yield return new WaitForSeconds(0.5f); // Delay between sprite changes for Credits
+        canChangeCreditsSprite = true;
     }
 }

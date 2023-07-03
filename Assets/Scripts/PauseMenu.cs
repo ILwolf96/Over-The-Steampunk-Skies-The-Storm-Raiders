@@ -36,8 +36,8 @@ public class PauseMenu : MonoBehaviour
     {
         worldManagersEnabled = !worldManagersEnabled;
         pauseWindow.SetActive(worldManagersEnabled);
-
-        foreach (GameObject gameManager in gameManagers)
+        GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
+        foreach (GameObject gameManager in allObjects)
         {
             DisableScripts(gameManager);
         }

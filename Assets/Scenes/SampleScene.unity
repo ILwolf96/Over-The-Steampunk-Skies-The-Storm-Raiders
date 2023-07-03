@@ -3935,6 +3935,7 @@ MonoBehaviour:
   pauseWindow: {fileID: 1576416593}
   pauseButton: {fileID: 322020996}
   resumeButton: {fileID: 1283920706}
+  returnButton: {fileID: 0}
   gameManagers: []
 --- !u!4 &692419451
 Transform:
@@ -6695,6 +6696,10 @@ MonoBehaviour:
   playerEnergyShotPrefab: {fileID: 1694339328}
   shotSpeed: 50
   cooldownTime: 1.5
+  lBorder: {fileID: 1540890386}
+  rBorder: {fileID: 653702750}
+  tBorder: {fileID: 1907913572}
+  bBorder: {fileID: 57474997}
 --- !u!1 &1254021577
 GameObject:
   m_ObjectHideFlags: 0

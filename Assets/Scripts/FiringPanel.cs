@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class FiringPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    [Header("Button")]
     public Sprite pressedSprite;
     public Sprite releasedSprite;
 
@@ -15,6 +16,11 @@ public class FiringPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private Image image;
     private bool isPressed;
     private float cooldownTimer;
+    [Header("Borders")]
+    [SerializeField] private GameObject lBorder;
+    [SerializeField] private GameObject rBorder;
+    [SerializeField] private GameObject tBorder;
+    [SerializeField] private GameObject bBorder;
 
     private void Awake()
     {
@@ -32,8 +38,12 @@ public class FiringPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        isPressed = true;
-        image.sprite = pressedSprite;
+        if (((Input.GetTouch(0).position.x < rBorder.transform.position.x) && (Input.GetTouch(0).position.x > lBorder.transform.position.x)) &&
+               ((Input.GetTouch(0).position.y < tBorder.transform.position.y) && (Input.GetTouch(0).position.y > bBorder.transform.position.y))) //checks if the press happens between the 4 borders.
+        {
+            isPressed = true;
+            image.sprite = pressedSprite;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)

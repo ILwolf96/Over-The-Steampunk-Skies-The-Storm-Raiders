@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 0}
   hpFillImage: {fileID: 0}
-  maxHealth: 50
+  maxHealth: 100
 --- !u!114 &99855144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5454,7 +5454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 2
-  damage: 10
+  damage: 1
   isSpawner: 1
 --- !u!1 &841443171
 GameObject:
@@ -8869,8 +8869,8 @@ MonoBehaviour:
   enemyCountStage2: 2
   enemyCountStage3: 2
   enemySpawnTimeStage1: 1
-  enemySpawnTimeStage2: 30
-  enemySpawnTimeStage3: 60
+  enemySpawnTimeStage2: 15
+  enemySpawnTimeStage3: 30
   enemyShipPrefab: {fileID: 1767834882}
   spawners:
   - {fileID: 1626028873}
